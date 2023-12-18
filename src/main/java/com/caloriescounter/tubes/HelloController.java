@@ -38,7 +38,7 @@ public class HelloController {
             int age = Integer.parseInt(ageTextField.getText());
             double weight = Double.parseDouble(weightTextField.getText());
 
-            // Calculate BMR based on gender
+            // Hitung BMR 
             double bmr;
             if (isMale) {
                 bmr = 88.362 + (13.397 * weight) - (5.677 * age);
