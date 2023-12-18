@@ -5,4 +5,4 @@ Membuat program Calories Counter dengan fitur
   2. Input Usia
   3. Input Berat Badan
   4. Output berupa hasil perhitungan dengan rumus BMR (Basal Metabolism Rate)
-  5. Output berupa rekomendasi makanan yang dibagi 3 kelas: Kalori Rendah; Kalori Sedang; Kalori Tinggi.
+  5. Output berupa rekomendasi makanan yang dibagi 3 kelas kebutuhan: Kalori Rendah; Seimbang; Kalori Tinggi.
