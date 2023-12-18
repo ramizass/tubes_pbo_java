@@ -1,10 +1,16 @@
 package com.caloriescounter.tubes;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HelloController {
 
@@ -38,7 +44,7 @@ public class HelloController {
             int age = Integer.parseInt(ageTextField.getText());
             double weight = Double.parseDouble(weightTextField.getText());
 
-            // Hitung BMR 
+            // Hitung BMR
             double bmr;
             if (isMale) {
                 bmr = 88.362 + (13.397 * weight) - (5.677 * age);
@@ -46,20 +52,41 @@ public class HelloController {
                 bmr = 447.593 + (9.247 * weight) - (4.330 * age);
             }
 
-            // Tampilkan hasil output
-            resultLabel.setText("Kebutuhan Kalori Basal Anda: " + String.format("%.2f", bmr) + " kalori per hari");
+            // Display hasil
+            String resultText = "Kebutuhan Kalori Basal Anda: " + String.format("%.2f", bmr) + " kalori per hari";
+
 
             double sedentaryMultiplier = 1.2; // Sedentary lifestyle multiplier
             double totalCalories = bmr * sedentaryMultiplier;
 
-            resultLabel.setText(resultLabel.getText() + "\nRekomendasi Makanan: " + getFoodRecommendations(totalCalories));
+            // Display rekomendasi makanan
+            resultText += "\nRekomendasi Makanan: " + getFoodRecommendations(totalCalories);
+            resultLabel.setText(resultText);
+
+            // Switch scene
+            switchToResultScene(resultText);
+
         } catch (NumberFormatException e) {
             resultLabel.setText("Masukkan usia dan berat badan dengan benar.");
         }
     }
 
+    private void switchToResultScene(String resultText) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ResultScene.fxml"));
+            Parent root = loader.load();
+
+            ResultController resultController = loader.getController();
+            resultController.setResultText(resultText);
+
+            Stage stage = (Stage) maleRadioButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private String getFoodRecommendations(double totalCalories) {
-        // Rekomendasi makanan berdasarkan kebutuhan kalori
+        // Rekomendasi makanan berdasar kebutuhan kalori
         if (totalCalories < 1500) {
             return "Anda disarankan untuk mengonsumsi makanan ringan yang rendah kalori." +
                     "\nRekomendasi makanan rendah kalori:" +
