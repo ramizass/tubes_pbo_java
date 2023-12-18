@@ -25,7 +25,7 @@ public class HelloController {
 
     @FXML
     private void calculateCalories() {
-        // Get input values
+        // Ambil nilai inputan
         boolean isMale = maleRadioButton.isSelected();
         boolean isFemale = femaleRadioButton.isSelected();
 
@@ -41,17 +41,41 @@ public class HelloController {
             // Calculate BMR based on gender
             double bmr;
             if (isMale) {
-                // BMR formula for men: BMR = 88.362 + (13.397 * weight in kg) + (4.799 * height in cm) - (5.677 * age)
                 bmr = 88.362 + (13.397 * weight) - (5.677 * age);
             } else {
-                // BMR formula for women: BMR = 447.593 + (9.247 * weight in kg) + (3.098 * height in cm) - (4.330 * age)
                 bmr = 447.593 + (9.247 * weight) - (4.330 * age);
             }
 
-            // Display the result
+            // Tampilkan hasil output
             resultLabel.setText("Kebutuhan Kalori Basal Anda: " + String.format("%.2f", bmr) + " kalori per hari");
+
+            double sedentaryMultiplier = 1.2; // Sedentary lifestyle multiplier
+            double totalCalories = bmr * sedentaryMultiplier;
+
+            resultLabel.setText(resultLabel.getText() + "\nRekomendasi Makanan: " + getFoodRecommendations(totalCalories));
         } catch (NumberFormatException e) {
             resultLabel.setText("Masukkan usia dan berat badan dengan benar.");
+        }
+    }
+
+    private String getFoodRecommendations(double totalCalories) {
+        // Rekomendasi makanan berdasarkan kebutuhan kalori
+        if (totalCalories < 1500) {
+            return "Anda disarankan untuk mengonsumsi makanan ringan yang rendah kalori." +
+                    "\nRekomendasi makanan rendah kalori:" +
+                    "\n1. Kacang-kacangan" +
+                    "\n2. Ikan stim" +
+                    "\n3. Ayam tanpa kulit" +
+                    "\n4. Tahu";
+        } else if (totalCalories < 2000) {
+            return "Anda disarankan untuk mengonsumsi makanan seimbang dan nutrisi.";
+        } else {
+            return "Anda dapat mengonsumsi makanan dengan tambahan kalori sehat." +
+                    "\nRekomendasi makanan tinggi kalori:" +
+                    "\n1. Daging merah" +
+                    "\n2. Nasi putih" +
+                    "\n3. Cokelat" +
+                    "\n4. Ikan berlemak (Salmon, Makarel, Tuna)";
         }
     }
 }
