@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.caloriescounter.tubes.NasiGoreng">
+   <children>
+      <ImageView fitHeight="186.0" fitWidth="213.0" layoutX="67.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resep-Gado-Gado.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="64.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daftar kalori gado-gado">
+         <font>
+            <Font name="Alte Haas Grotesk" size="18.0" />
+         </font>
+      </Text>
+      <TextArea layoutX="60.0" layoutY="271.0" prefHeight="200.0" prefWidth="200.0" text="Telur rebus : 155,1 kkal/100g&#10;Kentang rebus : 87 kal/100g&#10;Tahu tempe goreng : 80-100 kalori &#10;Lontong : 130 kkal/90g&#10;Timun : 45 kalori&#10;Toge : 22,9 kkal/100g&#10;Bumbu kacang : 130 kalori" />
+   </children>
+</AnchorPane>

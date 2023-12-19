@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.caloriescounter.tubes.NasiGoreng">
+   <children>
+      <ImageView fitHeight="186.0" fitWidth="213.0" layoutX="67.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@shutterstock_2102970676.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="64.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daftar kalori sayur asem">
+         <font>
+            <Font name="Alte Haas Grotesk" size="18.0" />
+         </font>
+      </Text>
+      <TextArea layoutX="60.0" layoutY="271.0" prefHeight="200.0" prefWidth="200.0" text="Jagung : 58,6 kcal/100g&#10;Labu siam : 19,1 kcal/100g&#10;Kacang tanah : 567,4 kcal/100g&#10;Kacang panjang : 47,1kcal/100g">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

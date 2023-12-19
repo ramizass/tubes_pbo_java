@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.caloriescounter.tubes.NasiGoreng">
+   <children>
+      <ImageView fitHeight="186.0" fitWidth="213.0" layoutX="67.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1200px-Mutton_satay_from_H._Faqih,_Jombang,_2017-09-19_01.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="54.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daftar kalori sate kambing">
+         <font>
+            <Font name="Alte Haas Grotesk" size="18.0" />
+         </font>
+      </Text>
+      <TextArea layoutX="60.0" layoutY="271.0" prefHeight="200.0" prefWidth="200.0" text="Nasi putih : 130kcal/100g&#10;Sate kambing : 353 kalori/10 tusuk &#10;Bumbu kacang : 130 kalori&#10;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
