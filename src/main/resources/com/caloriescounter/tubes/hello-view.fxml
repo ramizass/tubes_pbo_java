@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="472.0" prefWidth="289.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.caloriescounter.tubes.HelloController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="289.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.caloriescounter.tubes.HelloController">
 
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -57,6 +57,21 @@
                   </Label>
                </children>
               </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="Tinggi Badan:" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="heightTextField" prefHeight="26.0" prefWidth="185.0" />
+                  <Label text="cm">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0">
