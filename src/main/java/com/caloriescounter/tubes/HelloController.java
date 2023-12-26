@@ -30,6 +30,9 @@ public class HelloController {
     private Label resultLabel;
 
     @FXML
+    private TextField heightTextField;
+
+    @FXML
     private void calculateCalories() {
         // Ambil nilai inputan
         boolean isMale = maleRadioButton.isSelected();
@@ -43,24 +46,24 @@ public class HelloController {
         try {
             int age = Integer.parseInt(ageTextField.getText());
             double weight = Double.parseDouble(weightTextField.getText());
+            int height = Integer.parseInt(heightTextField.getText());
 
             // Hitung BMR
             double bmr;
             if (isMale) {
-                bmr = 88.362 + (13.397 * weight) - (5.677 * age);
+                bmr = 66 + (13.7 * weight) + (5 * height) - (6.8 * age);
             } else {
-                bmr = 447.593 + (9.247 * weight) - (4.330 * age);
+                bmr = 665 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
             }
 
             // Display hasil
-            String resultText = "Kebutuhan Kalori Basal Anda: " + String.format("%.2f", bmr) + " kalori per hari";
-
+            String resultText = "HASIL PERHITUNGAN BMR (BASAL METABOLIC RATE) \n\nKebutuhan Kalori Basal Anda: " + String.format("%.2f", bmr) + " kalori per hari";
 
             double sedentaryMultiplier = 1.2; // Sedentary lifestyle multiplier
             double totalCalories = bmr * sedentaryMultiplier;
 
             // Display rekomendasi makanan
-            resultText += "\nRekomendasi Makanan: " + getFoodRecommendations(totalCalories);
+            resultText += "\nRekomendasi Makanan: \n" + getFoodRecommendations(totalCalories);
             resultLabel.setText(resultText);
 
             // Switch scene
@@ -88,21 +91,12 @@ public class HelloController {
     private String getFoodRecommendations(double totalCalories) {
         // Rekomendasi makanan berdasar kebutuhan kalori
         if (totalCalories < 1500) {
-            return "Anda disarankan untuk mengonsumsi makanan ringan yang rendah kalori." +
-                    "\nRekomendasi makanan rendah kalori:" +
-                    "\n1. Kacang-kacangan" +
-                    "\n2. Ikan stim" +
-                    "\n3. Ayam tanpa kulit" +
-                    "\n4. Tahu";
+            return "\nAnda disarankan untuk mengonsumsi \nmakanan ringan yang rendah kalori.";
+
         } else if (totalCalories < 2000) {
-            return "Anda disarankan untuk mengonsumsi makanan seimbang dan nutrisi.";
+            return "\nAnda disarankan untuk mengonsumsi \nmakanan seimbang dan nutrisi.";
         } else {
-            return "Anda dapat mengonsumsi makanan dengan tambahan kalori sehat." +
-                    "\nRekomendasi makanan tinggi kalori:" +
-                    "\n1. Daging merah" +
-                    "\n2. Nasi putih" +
-                    "\n3. Cokelat" +
-                    "\n4. Ikan berlemak (Salmon, Makarel, Tuna)";
+            return "\nAnda dapat mengonsumsi \nmakanan dengan tambahan kalori tinggi.";
         }
     }
 }
